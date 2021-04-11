@@ -14,8 +14,9 @@ import { subscribeOn } from 'rxjs/operators';
 })
 export class AddCustomerComponent implements OnInit {
   orderDetailsForm: FormGroup
-  value2 = "hgf";
-  value1:any= this.value2;
+  value2:string;
+  value1:any
+  value:string = "demo"
   
   
   customerDetails: customerDetails[]
@@ -41,15 +42,17 @@ export class AddCustomerComponent implements OnInit {
 
   addIndividualDetailsGroup() {
     return this.formbuilder.group({
-      Name: ['',],
-      Designation: ['',],
-      Email_id: ['',],
+      Customer_id :[],
+      Name: [],
+      Designation: [],
+      Email_id: [],
       Contact: [],
     })
+
   };
 
   addAddress() {
-   
+
     this.addressArray.push(this.addIndividualDetailsGroup());
   }
   removeAddress(index) {
@@ -76,10 +79,14 @@ export class AddCustomerComponent implements OnInit {
       GST_no        :  this.orderDetailsForm.value['GST_no'],
       CIN_no        :  this.orderDetailsForm.value['CIN_no'],
     }
-console.log(customerDetails)
+  
+
     this.orderService.Post_Customer_Detail(customerDetails).subscribe(data =>{
-      Swal.fire(data,'Customer detail successfully updated','success')
-    },
+      Swal.fire(data,'Customer detail successfully updated','success').then((result)=>{
+        if (result.value){
+          this.router.navigateByUrl("Marketing/Customer")
+        }
+      })},
     error =>{
       Swal.fire("Failed",error,'error')
     })

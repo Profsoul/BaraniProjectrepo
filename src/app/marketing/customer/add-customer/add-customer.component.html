@@ -177,7 +177,7 @@
                             <div class="form-group">
                                 <label for="Customer_ID">Customer ID</label>
                                 <input  type="text" name="Customer_ID" class="form-control"
-                                    placeholder="" formControlName="Customer_id" [(ngModel)]="value1">
+                                    placeholder="" formControlName="Customer_id" [(ngModel)]="value">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -230,8 +230,10 @@
                         </div>
                     </div>
                     <div formArrayName="Individual_details">
+                
                         <div class="col-md-14" *ngFor="let group of addressArray.controls; let i = index;"
                                 [formGroupName]="i">
+                            <hr style="width: auto; height: 10px;" background-color="silver">  
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

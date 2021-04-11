@@ -33,12 +33,6 @@ export class ViewCustomerComponent implements OnInit {
           CIN_no        : data['CIN_no']
     
         })
-        this.time = data["Time"]
-        this.date = data["Date"]
-
-        this.orderDetailsForm.disable();
-
-        
       },
       error =>{
         console.log(error)
@@ -62,6 +56,10 @@ export class ViewCustomerComponent implements OnInit {
   ngOnInit(): void { }
   result(){
     this.orderDetailsForm.enable();
+    document.getElementById("update").hidden = false
+    document.getElementById("delete").hidden = false
+    
+
   }
   delete(){
     Swal.fire({
@@ -73,7 +71,6 @@ export class ViewCustomerComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.value) {
-        console.log("Success")
         this.service.Det_Customer_Detail(this.data).subscribe(data=>{
           Swal.fire(
             'Deleted!',
@@ -98,10 +95,10 @@ export class ViewCustomerComponent implements OnInit {
     }})
     }
 
-  action(){
+  update(){
 
-    let up_customerDetails = { 
-    Customer_id   :  this.orderDetailsForm.value['Customer_id'],
+    let updated_customerDetails = { 
+    Customer_id   :  this.data,
     Email_id      :  this.orderDetailsForm.value['Email_id'],
     Customer_name :  this.orderDetailsForm.value['Customer_name'],
     Nick_name     :  this.orderDetailsForm.value['Nick_name'],
@@ -109,8 +106,19 @@ export class ViewCustomerComponent implements OnInit {
     GST_no        :  this.orderDetailsForm.value['GST_no'],
     CIN_no        :  this.orderDetailsForm.value['CIN_no'],
    }
-this.service.Upt_Customer_Detail(this.orderDetailsForm.value['Customer_id'],up_customerDetails).subscribe(data=>{Swal.fire("Updated Successfully","Updated Succcessfully to the server","success")},
-error=>{Swal.fire("Failed to update","Failed to update information","error")})
+   console.log(updated_customerDetails)
+this.service.Upt_Customer_Detail(this.orderDetailsForm.value['Customer_id'],updated_customerDetails).subscribe(data=>{Swal.fire("Updated Successfully","Updated Succcessfully to the server","success").then((result)=>{
+  if (result.value){
+
+    this.router.navigateByUrl("Marketing/Customer")
+  }
+})},
+error=>{Swal.fire("Failed to update","Failed to update information","error").then((result)=>{
+  if (result.value){
+
+    this.router.navigateByUrl("Marketing/Customer")
+  }
+})})
 
   }
 

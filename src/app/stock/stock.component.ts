@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators'
 export class StockComponent implements OnInit {
 
   value: string;  
-data :any
+ data :any
   constructor(private router:Router) { }
   method(){
     this.router.navigateByUrl('Stock/inward')
@@ -380,7 +380,7 @@ data :any
 
   ]
   }
-    Supply() {
+    SearchBox(){
     if (this.value != ''){
       this.data =this.data.filter(res => {
         return res.items.toLocaleLowerCase().match(this.value.toLocaleLowerCase());

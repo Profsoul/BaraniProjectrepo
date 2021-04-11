@@ -9,16 +9,17 @@ import Swal from 'sweetalert2';
 })
 export class CustomerComponent implements OnInit {
   customer_list =[]
+  search_input :string;
   constructor(private router:Router,public ApiService:OrderServiceService) 
-  {
+  {}
+   ngOnInit(): void
+   {
     this.ApiService.Get_Customer_Detail().subscribe(data =>{
       this.customer_list = data
     },error =>{
       Swal.fire("Error","Not Able to Get data Please Contact Server Administrator","error")
     })
-
-  
-   }
+  }
 
   
   action2(val){
@@ -29,14 +30,23 @@ export class CustomerComponent implements OnInit {
     })
    
   }
+  SearchBox(){
+    if (this.search_input != ''){
+      this.customer_list =this.customer_list.filter(res => {
+        return res.Customer_id.toLocaleLowerCase().match(this.search_input.toLocaleLowerCase());
+      }
+      )
+    
+    }
+    else if (this.search_input == ''){
+      this.ngOnInit();}
+    }
+  
 
   addCustomer()
   {
     this.router.navigateByUrl('/Customer/Adding-Customer')
   }
 
-  ngOnInit(): void
-   {
-  }
 
 }

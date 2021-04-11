@@ -175,9 +175,8 @@
         <div class="row">
           <div class="col">
             <form class="form-inline mt-3">
-              <i class="fas fa-search" aria-hidden="true"></i>
               <input class="form-control form-control-sm w-40" type="text" placeholder=" search customer name"
-                aria-label="Search" name="Search customer name">
+                aria-label="Search" (input)="SearchBox()" [(ngModel)]="search_input" name="Search customer name">
               <div class="btn d" (click)='addCustomer()' style="font-weight:bolder; font-size: 30px;">+</div>
             </form>
           </div>
