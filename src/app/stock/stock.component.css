@@ -1,0 +1,9 @@
+@media only screen and (max-width: 768px)
+{
+    table{
+        width: auto;
+    }
+}
+.form-control {
+    box-shadow: 1px 1px;
+  }

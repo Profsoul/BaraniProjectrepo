@@ -1,0 +1,12 @@
+input[type="number"]:out-of-range+h6{
+    border-color: red;
+    display: block;
+    color:red
+    
+}
+
+
+input[type="number"]:out-of-range{
+    border-color: red;
+
+}

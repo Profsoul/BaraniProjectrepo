@@ -1,0 +1,28 @@
+/*.form-control{
+    height: 35px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 1px;
+    border-color: #3498db;
+  }
+  
+  
+  .btn{
+    border: 1px solid #3498db;
+    background: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+    color: #3498db;
+  }
+  .btn-btn{
+    border: 1px #3498db;
+    background: none;
+    padding: 10px;
+    cursor: pointer;
+    color: #3498db;
+    position: relative;
+    overflow: hidden;
+  }*/

@@ -1,0 +1,348 @@
+<div class="container-scroller">
+  <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
+      <a class="navbar-brand brand-logo" href="index1.html">
+        <img src="assets/images/logo.svg" alt="logo" /> </a>
+
+      <a class="navbar-brand brand-logo-mini" href="index1.html">
+        <img src="assets/images/logo-mini.svg" alt="logo" /> </a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+
+          <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown"
+            aria-expanded="false">
+            <i class="mdi mdi-bell-outline"></i>
+            <span class="count">7</span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+            aria-labelledby="messageDropdown">
+            <a class="dropdown-item py-3">
+              <p class="mb-0 font-weight-medium float-left">You have 7 unread mails </p>
+              <span class="badge badge-pill badge-primary float-right">View all</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="assets/images/faces/face10.jpg" alt="image" class="img-sm profile-pic">
+              </div>
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Marian Garner </p>
+                <p class="font-weight-light small-text"> The meeting is cancelled </p>
+              </div>
+            </a>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="assets/images/faces/face12.jpg" alt="image" class="img-sm profile-pic">
+              </div>
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">David Grey </p>
+                <p class="font-weight-light small-text"> The meeting is cancelled </p>
+              </div>
+            </a>
+            <a class="dropdown-item preview-item">
+              <div class="preview-thumbnail">
+                <img src="assets/images/faces/face1.jpg" alt="image" class="img-sm profile-pic">
+              </div>
+              <div class="preview-item-content flex-grow py-2">
+                <p class="preview-subject ellipsis font-weight-medium text-dark">Travis Jenkins </p>
+                <p class="font-weight-light small-text"> The meeting is cancelled </p>
+              </div>
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown">
+          <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
+            <i class="mdi mdi-email-outline"></i>
+            <span class="count bg-success">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+            aria-labelledby="notificationDropdown">
+            <a class="dropdown-item py-3 border-bottom">
+              <p class="mb-0 font-weight-medium float-left">You have 4 new notifications </p>
+              <span class="badge badge-pill badge-primary float-right">View all</span>
+            </a>
+            <a class="dropdown-item preview-item py-3">
+              <div class="preview-thumbnail">
+                <i class="mdi mdi-alert m-auto text-primary"></i>
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal text-dark mb-1">Application Error</h6>
+                <p class="font-weight-light small-text mb-0"> Just now </p>
+              </div>
+            </a>
+            <a class="dropdown-item preview-item py-3">
+              <div class="preview-thumbnail">
+                <i class="mdi mdi-settings m-auto text-primary"></i>
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal text-dark mb-1">Settings</h6>
+                <p class="font-weight-light small-text mb-0"> Private message </p>
+              </div>
+            </a>
+            <a class="dropdown-item preview-item py-3">
+              <div class="preview-thumbnail">
+                <i class="mdi mdi-airballoon m-auto text-primary"></i>
+              </div>
+              <div class="preview-item-content">
+                <h6 class="preview-subject font-weight-normal text-dark mb-1">New user registration</h6>
+                <p class="font-weight-light small-text mb-0"> 2 days ago </p>
+              </div>
+            </a>
+          </div>
+        </li>
+
+
+        <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
+          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
+            <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image"> </a>
+          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
+            <div class="dropdown-header text-center">
+              <img class="img-md rounded-circle" src="assets/images/faces/face8.jpg" alt="Profile image">
+              <p class="mb-1 mt-3 font-weight-semibold">Vicky</p>
+              <p class="font-weight-light text-muted mb-0">vignesharun619@gmail.com</p>
+            </div>
+            <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i
+                class="dropdown-item-icon ti-dashboard"></i></a>
+            <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div class="container-fluid page-body-wrapper">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <ul class="nav">
+        <li class="nav-item nav-profile">
+          <a href="#" class="nav-link">
+            <div class="profile-image">
+              <img class="img-xs rounded-circle" src="assets/images/faces/face8.jpg" alt="profile image">
+              <div class="dot-indicator bg-success"></div>
+            </div>
+            <div class="text-wrapper">
+              <p class="profile-name">User Name</p>
+              <p class="designation">Premium user</p>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item nav-category">Main Menu</li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/home'>
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/feasibility'>
+            <i class="menu-icon typcn typcn-document-text"></i>
+            <span class="menu-title">Feasibility Report</span>
+          </a>
+        </li>
+        <!--li class="nav-item">
+            <a class="nav-link" routerLink='/home'>
+              <i class="menu-icon typcn typcn-document-text"></i>
+              <span class="menu-title">Pending Purchase Order</span>
+            </a>
+          </li-->
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <i class="menu-icon typcn typcn-document-add"></i>
+            <span class="menu-title">Details</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="collapse" id="auth">
+            <ul class="nav flex-column sub-menu">
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/login.html"> Login </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/register.html"> Register </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="main-panel">
+      <!--div class="card mt-2 mx-6 p-3 ">
+            <div class="container">
+                <form id="form-register" [formGroup]="orderDetailsForm">
+                    <ul class="nav nav-pills nav-justified">
+                      <li class="nav-item nav-link"><a href="#product-details" role="tab" data-toggle="tab"
+                                aria-selected="false">Product Details</a></li>
+                    </ul>
+                </form>
+            </div>
+        </div-->
+      <div class="card mt-2 mx-6 p-3 ">
+        <div class="container-fluid">
+          <form id="form-register" [formGroup]="orderDetailsForm">
+            <div class="row">
+              <div class="col-md-6">
+                <label for="RFQ_id">RFQ_id</label>
+                <div class="input-group mb-3">
+                  <input  id="RFQ_id" type="text" class="form-control" placeholder="" aria-label="" formControlName="RFQ_id"aria-describedby="basic-addon1">
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" (click)='generateRFQ_ID()'type="button">Generate</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="product_id">Customer ID</label>
+                  <input id="product_id" type="text" name="Product_id" class="form-control mt-2" placeholder=""
+                    formControlName="Product_id">
+                </div>
+              </div>
+            </div>
+
+            <hr style="width: auto; height: 10px;" background-color="silver">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="product_id">Product ID</label>
+                  <input id="product_id" type="text" name="Product_id" class="form-control" placeholder=""
+                    formControlName="Product_id">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="product_name">Product Name</label>
+                  <input id="CIN" type="text" name="Part_name" class="form-control" placeholder=""
+                    formControlName="Part_name">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Part_code">Part Code</label>
+                  <input id="Part_code" type="text" class="form-control" placeholder="" formControlName="Part_code">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="vendor_name">Vendor Name</label>
+                  <input id="vendor_name" type="text" class="form-control" placeholder="" formControlName="Ventor_code">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Casting">Casting Type:</label>
+                  <div class="radio">
+                    <input type="radio" formControlName="Casting_type" value="rough" (change)='showCastingSelect()'>
+                    Rough
+                    <input type="radio" formControlName="Casting_type" value="Machinary" (change)='showCastingSelect()'>
+                    Machinary
+                    <select *ngIf='isSelect' formControlName="Machinary_type">
+                      <option value="" selected disabled>--Select--</option>
+                      <option>Pre</option>
+                      <option>Fully</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="pattern_Scope">Pattern Scope:</label>
+                  <div class="radio">
+                    <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="BFC">
+                    BFC
+                    <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="Customer"> Customer
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="painting">Painting</label>
+                  <input id="painting" type="text" name="Painting_method" class="form-control" placeholder=""
+                    formControlName="Painting_method">
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="packing">Packing</label>
+                  <input id="packing" type="text" name="Packing_type" class="form-control" placeholder=""
+                    formControlName="Packing_type">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Transport">Transport:</label>
+                  <div class="radio">
+                    <input type="radio" name="Transport" formControlName="Transport" value="BFC"> BFC
+                    <input type="radio" name="Transport" formControlName="Transport" value="Customer">
+                    Customer
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="payment">Payment Terms:</label>
+                  <div class="radio">
+                    <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="immediate"
+                      (change)='showPaymentTermsDays()'> Immediate
+                    <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="days"
+                      (change)='showPaymentTermsDays()'> Days
+                    <input type="text" placeholder="Enter no. of days" *ngIf='isPaymentTermsDays'
+                      formControlName="Payments_terms_days">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="export">Export Required:</label>
+                  <div class="radio">
+                    <input type="radio" name="Export_required" formControlName="Export_required" value="yes"> Yes
+                    <input type="radio" name="Export_required" formControlName="Export_required" value="no"> No
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Quantity">Quantity:</label>
+                  <div class="radio">
+                    <input type="radio" name="Quantity" formControlName="Quantity" value="annually">
+                    Annually
+                    <input type="radio" name="Quantity" formControlName="Quantity" value="others">
+                    Others
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Submit" (click)="submit()">
+            </div>
+          </form>
+        </div>
+      </div>    
+    </div>
+  </div>
+</div>
+<script src="assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="assets/js/shared/off-canvas.js"></script>
