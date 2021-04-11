@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute ,Router} from '@angular/router';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {OrderServiceService} from 'src/app/service/order-service.service';
 import Swal from 'sweetalert2';
@@ -18,7 +18,7 @@ export class ViewCustomerComponent implements OnInit {
   
 
 
-  constructor(private service:OrderServiceService ,private formbuilder: FormBuilder,private route:ActivatedRoute) {
+  constructor(private service:OrderServiceService,private router:Router ,private formbuilder: FormBuilder,private route:ActivatedRoute) {
     this.data = this.route.snapshot.params.id
     service.Cet_Customer_Detail(this.data).subscribe(
       data =>{
@@ -59,15 +59,45 @@ export class ViewCustomerComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-  
-    
-    /**/ 
-  
-  }
+  ngOnInit(): void { }
   result(){
     this.orderDetailsForm.enable();
   }
+  delete(){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'You will not be able to recover this Customer anymore!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it'
+    }).then((result) => {
+      if (result.value) {
+        console.log("Success")
+        this.service.Det_Customer_Detail(this.data).subscribe(data=>{
+          Swal.fire(
+            'Deleted!',
+            'The Customer has been deleted Sucessfully.',
+            'success'
+          ).then((result)=>{
+            if (result.value){
+      
+              this.router.navigateByUrl("Marketing/Customer")
+            }
+          })
+         
+        },error=>{
+          Swal.fire(
+            'Cancelled',
+            'No Customer Data is Available :)',
+            'error'
+          )
+        })
+        
+      
+    }})
+    }
+
   action(){
 
     let up_customerDetails = { 
