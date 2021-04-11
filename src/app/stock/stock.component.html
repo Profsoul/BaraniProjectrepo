@@ -146,8 +146,13 @@
         <hr style="width: auto; height: 10px;" background-color="silver">
       </div>
       <div class="container">
-        <input class=" form-control form-control-sm w-25 mt-2  bg-light " type="text"  placeholder="Search"  aria-label="Search" [(ngModel)] = 'value' (input) = "Supply()" name="Search customer name">
-        <button class="btn mt-0" (click)= "method()" style="font-weight:bolder; font-size: 30px; float: right;">+</button>
+        <form class="form-inline mt-3">
+          <input class="form-control form-control-sm w-40" type="text" placeholder=" Search items"
+            aria-label="Search" (input)="SearchBox()" [(ngModel)]="value" name="Search customer name">
+          <div class="btn d" (click)= "method()"  style="font-weight:bolder; font-size: 30px;">+</div>
+        </form>
+      
+
         <div class="container">
           <table class="table table-striped">
 

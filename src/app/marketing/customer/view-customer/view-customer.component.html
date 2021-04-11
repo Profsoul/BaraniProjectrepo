@@ -173,7 +173,7 @@
 
         <div class="main-panel ">
             <div class="container-fluid mt-5">
-                <div class="btn d d-flex justify-content-right"  style="font-weight:bolder; font-size: 30px;" (click)="result()">+</div>
+                <div class="btn d d-flex justify-content-end"  style="font-weight:bolder;" (click)="result()"><i class="fa fa-pencil" style="font-size: larger;" aria-hidden="true"></i></div>
                 <form id="form-register" [formGroup]="orderDetailsForm">
                     
                     <div class="row">
@@ -181,14 +181,14 @@
                             <div class="form-group">
                                 <label for="Customer_ID">Customer ID</label>
                                 <input type="text" name="Customer_ID" class="form-control"
-                                    placeholder="" formControlName="Customer_id" >
+                                    placeholder="" formControlName="Customer_id" disabled>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="email">E-mail</label>
                                 <input id="email" type="text" name="email" class="form-control" placeholder=""
-                                    formControlName="Email_id">
+                                    formControlName="Email_id" disabled>
                             </div>
                         </div>
                     </div>
@@ -197,14 +197,14 @@
                             <div class="form-group">
                                 <label for="Customer_name">Customer Name</label>
                                 <input id="Customer_name" type="text" name="Customer_name" class="form-control"
-                                    placeholder="" formControlName="Customer_name">
+                                    placeholder="" formControlName="Customer_name" disabled>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="nick_name">Nick Name</label>
                                 <input id="nick_name" type="text" name="nick_name" class="form-control" placeholder=""
-                                    formControlName="Nick_name">
+                                    formControlName="Nick_name" disabled>
                             </div>
                         </div>
                     </div>
@@ -213,7 +213,7 @@
                             <div class="form-group">
                                 <label for="address">Address Location</label>
                                 <input id="address" type="text" name="address" class="form-control" placeholder=""
-                                    formControlName="Address">
+                                    formControlName="Address" disabled>
                             </div>
                         </div>
                     </div>
@@ -222,23 +222,23 @@
                             <div class="form-group">
                                 <label for="gst">GST</label>
                                 <input id="gst" type="text" name="gst" class="form-control" placeholder=""
-                                    formControlName="GST_no">
+                                    formControlName="GST_no" disabled>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="CIN">CIN</label>
                                 <input id="CIN" type="text" name="CIN" class="form-control" placeholder=""
-                                            formControlName="CIN_no">
+                                            formControlName="CIN_no" disabled>
                             </div>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col d-flex justify-content-end">
-                            <div  class="btn btn-primary" (click)="action()" >Update</div>
+                            <div  class="btn btn-primary"  id ="update" (click)="update()" hidden>Update</div>
                         </div>
                         <div class="col">
-                            <div  class="btn btn-danger" (click)="delete()" >Delete</div>
+                            <div  class="btn btn-danger" id="delete" (click)="delete()" hidden>Delete</div>
                         </div>
                     </div>
                 </form>
