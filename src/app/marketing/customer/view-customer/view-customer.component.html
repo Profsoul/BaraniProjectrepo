@@ -233,7 +233,14 @@
                             </div>
                         </div>
                     </div>
-                    <div  class="btn btn-primary w-50" style="margin-left: 25%; height:13%;" (click)="action()" >Update</div>
+                    <div class="row mt-3">
+                        <div class="col d-flex justify-content-end">
+                            <div  class="btn btn-primary" (click)="action()" >Update</div>
+                        </div>
+                        <div class="col">
+                            <div  class="btn btn-danger" (click)="delete()" >Delete</div>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
