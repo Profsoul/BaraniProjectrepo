@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { NgxSpinnerModule } from "ngx-spinner"; 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -71,7 +71,8 @@ import { ViewCustomerComponent } from './marketing/customer/view-customer/view-c
     MatDialogModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule
     
   ],
   providers: [ 

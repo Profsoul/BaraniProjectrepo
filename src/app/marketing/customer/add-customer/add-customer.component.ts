@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { nextTick } from 'process';
 import { customerDetails, orderDetails } from 'src/app/models/new-order-details';
 import { OrderServiceService } from 'src/app/service/order-service.service';
 import { Router } from '@angular/router';
-import {Observable} from "rxjs";
+import { NgxSpinnerService } from "ngx-spinner";
 import  Swal from 'sweetalert2';
-import { subscribeOn } from 'rxjs/operators';
+import { sample } from 'rxjs/operators';
+
 @Component({
   selector: 'app-add-customer',
   templateUrl: './add-customer.component.html',
@@ -14,14 +14,18 @@ import { subscribeOn } from 'rxjs/operators';
 })
 export class AddCustomerComponent implements OnInit {
   orderDetailsForm: FormGroup
-  value2:string;
-  value1:any
-  value:string = "demo"
+  customer_id:string;
+  customer:string;
+  click:boolean = false;
   
   
   customerDetails: customerDetails[]
   
-  constructor(private formbuilder: FormBuilder, private orderService: OrderServiceService,private router:Router) {
+  constructor(private formbuilder: FormBuilder ,private SpinnerService: NgxSpinnerService, private orderService: OrderServiceService,private router:Router) {
+      let year = new Date().getFullYear();
+      let month = ("0" + (new Date().getMonth() + 1)).slice(-2);
+      this.customer = 'BFPL-'+year+'-'+month+'-'
+
   }
 
   ngOnInit(): void {
@@ -66,9 +70,8 @@ export class AddCustomerComponent implements OnInit {
     return <FormArray>this.orderDetailsForm.get('Individual_details');
   }
 
+  verify(){
 
-
-  submit() {
     let customerDetails = 
     {
       Customer_id   :  this.orderDetailsForm.value['Customer_id'],
@@ -79,18 +82,34 @@ export class AddCustomerComponent implements OnInit {
       GST_no        :  this.orderDetailsForm.value['GST_no'],
       CIN_no        :  this.orderDetailsForm.value['CIN_no'],
     }
-  
 
+    this.SpinnerService.show();
     this.orderService.Post_Customer_Detail(customerDetails).subscribe(data =>{
+    
+    this.SpinnerService.hide()
       Swal.fire(data,'Customer detail successfully updated','success').then((result)=>{
         if (result.value){
-          this.router.navigateByUrl("Marketing/Customer")
+          document.getElementById('verify').innerHTML="Verified!!!";
+          document.getElementById('verify').style.backgroundColor = '#5cb85c';
+          this.click = true;
+          document.getElementById('individual').hidden = false
+
         }
       })},
     error =>{
+      this.SpinnerService.hide()
       Swal.fire("Failed",error,'error')
     })
     
+    }
+
+  submit() {
+    console.log(this.addressArray.value,this.orderDetailsForm.get("Customer_id").value)
+    this.orderService.Post_Individual_Detail(this.addressArray.value).subscribe(data =>{Swal.fire("Sucessfully Submit!!",data,"success")},
+    error =>{Swal.fire("error!!!","Unable to Upload to Server","error")})
     
   }
+  Generate(){
+  this.customer_id = ""
+  this.customer_id= this.customer+this.orderDetailsForm.value['Nick_name'][0].toLocaleUpperCase()+this.orderDetailsForm.value['Nick_name'].slice(this.orderDetailsForm.value['Nick_name'].length-1).toLocaleUpperCase(); }
 }

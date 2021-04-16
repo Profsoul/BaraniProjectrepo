@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute ,Router} from '@angular/router';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import {OrderServiceService} from 'src/app/service/order-service.service';
+import { NgxSpinnerService } from "ngx-spinner";
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-view-customer',
@@ -18,10 +19,11 @@ export class ViewCustomerComponent implements OnInit {
   
 
 
-  constructor(private service:OrderServiceService,private router:Router ,private formbuilder: FormBuilder,private route:ActivatedRoute) {
+  constructor(private service:OrderServiceService,private router:Router ,private SpinnerService: NgxSpinnerService,private formbuilder: FormBuilder,private route:ActivatedRoute) {
     this.data = this.route.snapshot.params.id
     service.Cet_Customer_Detail(this.data).subscribe(
       data =>{
+        this.SpinnerService.show();
        
         this.orderDetailsForm.setValue({
           Customer_id   :data['Customer_id'],
@@ -33,6 +35,7 @@ export class ViewCustomerComponent implements OnInit {
           CIN_no        : data['CIN_no']
     
         })
+        this.SpinnerService.hide();
       },
       error =>{
         console.log(error)
@@ -62,6 +65,7 @@ export class ViewCustomerComponent implements OnInit {
 
   }
   delete(){
+    
     Swal.fire({
       title: 'Are you sure?',
       text: 'You will not be able to recover this Customer anymore!',
@@ -71,7 +75,9 @@ export class ViewCustomerComponent implements OnInit {
       cancelButtonText: 'No, keep it'
     }).then((result) => {
       if (result.value) {
+        this.SpinnerService.show()
         this.service.Det_Customer_Detail(this.data).subscribe(data=>{
+          this.SpinnerService.hide()
           Swal.fire(
             'Deleted!',
             'The Customer has been deleted Sucessfully.',
@@ -107,7 +113,10 @@ export class ViewCustomerComponent implements OnInit {
     CIN_no        :  this.orderDetailsForm.value['CIN_no'],
    }
    console.log(updated_customerDetails)
-this.service.Upt_Customer_Detail(this.orderDetailsForm.value['Customer_id'],updated_customerDetails).subscribe(data=>{Swal.fire("Updated Successfully","Updated Succcessfully to the server","success").then((result)=>{
+this.SpinnerService.show()   
+this.service.Upt_Customer_Detail(this.orderDetailsForm.value['Customer_id'],updated_customerDetails).subscribe(data=>{
+  this.SpinnerService.hide();
+  Swal.fire("Updated Successfully","Updated Succcessfully to the server","success").then((result)=>{ 
   if (result.value){
 
     this.router.navigateByUrl("Marketing/Customer")
