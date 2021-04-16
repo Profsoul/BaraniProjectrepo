@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OrderServiceService } from 'src/app/service/order-service.service';
 import Swal from 'sweetalert2';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',
@@ -10,15 +11,19 @@ import Swal from 'sweetalert2';
 export class CustomerComponent implements OnInit {
   customer_list =[]
   search_input :string;
-  constructor(private router:Router,public ApiService:OrderServiceService) 
+  constructor(private router:Router,public ApiService:OrderServiceService,private SpinnerService: NgxSpinnerService) 
   {}
    ngOnInit(): void
    {
+    this.SpinnerService.show();  
     this.ApiService.Get_Customer_Detail().subscribe(data =>{
+      this.SpinnerService.hide();
       this.customer_list = data
     },error =>{
+      this.SpinnerService.hide();
       Swal.fire("Error","Not Able to Get data Please Contact Server Administrator","error")
     })
+    
   }
 
   

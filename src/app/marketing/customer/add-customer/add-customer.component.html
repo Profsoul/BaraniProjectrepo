@@ -177,7 +177,7 @@
                             <div class="form-group">
                                 <label for="Customer_ID">Customer ID</label>
                                 <input  type="text" name="Customer_ID" class="form-control"
-                                    placeholder="" formControlName="Customer_id" [(ngModel)]="value">
+                                    placeholder="" formControlName="Customer_id" id = "cus_id" [readonly]="true" [(ngModel)]="customer_id">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -200,7 +200,7 @@
                             <div class="form-group">
                                 <label for="nick_name">Nick Name</label>
                                 <input id="nick_name" type="text" name="nick_name" class="form-control" placeholder=""
-                                    formControlName="Nick_name" [(ngModel)]="value2">
+                                    formControlName="Nick_name" (keyup)="Generate()">
                             </div>
                         </div>
                     </div>
@@ -229,8 +229,8 @@
                             </div>
                         </div>
                     </div>
-                    <div formArrayName="Individual_details">
-                
+                    <button class="btn btn-primary" (click)="verify()" id ="verify" [disabled]="click">Verify</button>
+                    <div formArrayName="Individual_details" hidden id = "individual">             
                         <div class="col-md-14" *ngFor="let group of addressArray.controls; let i = index;"
                                 [formGroupName]="i">
                             <hr style="width: auto; height: 10px;" background-color="silver">  
@@ -254,7 +254,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">E-mail</label>
-                                        <input id="email" type="text" name="email" class="form-control" placeholder=""
+                                        <input   type="email" name="email" class="form-control" placeholder=""
                                             formControlName="Email_id">
                                     </div>
                                 </div>
@@ -265,19 +265,28 @@
                                             placeholder="" formControlName="Contact">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <input id="name" type="text" name="name" class="form-control" placeholder=""
+                                        formControlName="Customer_id"[(ngModel)]="customer_id"  hidden>
+                                </div>
                             </div>
                             <div class="col-14 control-buttons mb-4">
                                 <img src="/assets/icons/add.svg" alt="+" (click)="addAddress()">
                                 <img src="/assets/icons/remove.svg" alt="x" width="24" height="24"
                                     (click)="removeAddress(i)">
                             </div>
+
                         </div>
+                        <div  class="btn  btn-primary mb-3" id="submit" (click)="submit()">Submit</div>
                     </div>
-                    <div  class="btn btn-primary w-50" style="margin-left: 25%; height:13%;" (click)="submit()">Submit</div>
+                    
                 </form>
             </div>
         </div>
     </div>
 </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+</ngx-spinner>
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="assets/js/shared/off-canvas.js"></script>
