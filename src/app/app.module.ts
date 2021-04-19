@@ -32,6 +32,7 @@ import { StockTakeComponent } from './stock/stock-take/stock-take.component';
 import { CustomerComponent } from './marketing/customer/customer.component';
 import { AddCustomerComponent } from './marketing/customer/add-customer/add-customer.component';
 import { ViewCustomerComponent } from './marketing/customer/view-customer/view-customer.component';
+import { HrComponent } from './hr/hr.component';
 
 
 
@@ -62,6 +63,7 @@ import { ViewCustomerComponent } from './marketing/customer/view-customer/view-c
     CustomerComponent,
     AddCustomerComponent,
     ViewCustomerComponent,
+    HrComponent,
 
   ],
   imports: [

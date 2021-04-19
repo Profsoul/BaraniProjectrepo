@@ -37,6 +37,14 @@ export class OrderServiceService {
     return this.http.post(this.base_url+"Customer_Detail/",data ,{headers:this.httpHeaders})
   }
 
+  Post_Order_Detail(data):Observable<any>{
+    return this.http.post(this.base_url+"Order_Detail/",data ,{headers:this.httpHeaders})
+  }
+
+
+  Get_Individual_Detail(data):Observable<any>{
+    return this.http.get(this.base_url+"Individual_Detail?"+'id='+data ,{headers:this.httpHeaders})
+  }
 
   Post_Individual_Detail(data):Observable<any>{
     return this.http.post(this.base_url+"Individual_Detail/",data ,{headers:this.httpHeaders})

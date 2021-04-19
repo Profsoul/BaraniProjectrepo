@@ -181,167 +181,177 @@
       </ul>
     </nav>
     <div class="main-panel">
-      <!--div class="card mt-2 mx-6 p-3 ">
-            <div class="container">
-                <form id="form-register" [formGroup]="orderDetailsForm">
-                    <ul class="nav nav-pills nav-justified">
-                      <li class="nav-item nav-link"><a href="#product-details" role="tab" data-toggle="tab"
-                                aria-selected="false">Product Details</a></li>
-                    </ul>
-                </form>
+      <div class="container-fluid mt-5">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Customer_name</label>
+              <input type="text" name="Customer_name" class="form-control" 
+              placeholder="" [readonly]="true" [(ngModel)]="value2">
             </div>
-        </div-->
-      <div class="card mt-2 mx-6 p-3 ">
-        <div class="container-fluid">
-          <form id="form-register" [formGroup]="orderDetailsForm">
-            <div class="row">
-              <div class="col-md-6">
-                <label for="RFQ_id">RFQ_id</label>
-                <div class="input-group mb-3">
-                  <input  id="RFQ_id" type="text" class="form-control" placeholder="" aria-label="" formControlName="RFQ_id"aria-describedby="basic-addon1">
-                  <div class="input-group-append">
-                    <button class="btn btn-primary" (click)='generateRFQ_ID()'type="button">Generate</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="product_id">Customer ID</label>
-                  <input id="product_id" type="text" name="Product_id" class="form-control mt-2" placeholder=""
-                    formControlName="Product_id">
-                </div>
-              </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="">Nick_name</label>
+              <input type="text" name="Nick_name"class="form-control"
+              placeholder="" [readonly]="true" [(ngModel)]="value3">
             </div>
-
-            <hr style="width: auto; height: 10px;" background-color="silver">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="product_id">Product ID</label>
-                  <input id="product_id" type="text" name="Product_id" class="form-control" placeholder=""
-                    formControlName="Product_id">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="product_name">Product Name</label>
-                  <input id="CIN" type="text" name="Part_name" class="form-control" placeholder=""
-                    formControlName="Part_name">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Part_code">Part Code</label>
-                  <input id="Part_code" type="text" class="form-control" placeholder="" formControlName="Part_code">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="vendor_name">Vendor Name</label>
-                  <input id="vendor_name" type="text" class="form-control" placeholder="" formControlName="Ventor_code">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Casting">Casting Type:</label>
-                  <div class="radio">
-                    <input type="radio" formControlName="Casting_type" value="rough" (change)='showCastingSelect()'>
-                    Rough
-                    <input type="radio" formControlName="Casting_type" value="Machinary" (change)='showCastingSelect()'>
-                    Machinary
-                    <select *ngIf='isSelect' formControlName="Machinary_type">
-                      <option value="" selected disabled>--Select--</option>
-                      <option>Pre</option>
-                      <option>Fully</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="pattern_Scope">Pattern Scope:</label>
-                  <div class="radio">
-                    <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="BFC">
-                    BFC
-                    <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="Customer"> Customer
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="painting">Painting</label>
-                  <input id="painting" type="text" name="Painting_method" class="form-control" placeholder=""
-                    formControlName="Painting_method">
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="packing">Packing</label>
-                  <input id="packing" type="text" name="Packing_type" class="form-control" placeholder=""
-                    formControlName="Packing_type">
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Transport">Transport:</label>
-                  <div class="radio">
-                    <input type="radio" name="Transport" formControlName="Transport" value="BFC"> BFC
-                    <input type="radio" name="Transport" formControlName="Transport" value="Customer">
-                    Customer
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="payment">Payment Terms:</label>
-                  <div class="radio">
-                    <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="immediate"
-                      (change)='showPaymentTermsDays()'> Immediate
-                    <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="days"
-                      (change)='showPaymentTermsDays()'> Days
-                    <input type="text" placeholder="Enter no. of days" *ngIf='isPaymentTermsDays'
-                      formControlName="Payments_terms_days">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="export">Export Required:</label>
-                  <div class="radio">
-                    <input type="radio" name="Export_required" formControlName="Export_required" value="yes"> Yes
-                    <input type="radio" name="Export_required" formControlName="Export_required" value="no"> No
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label for="Quantity">Quantity:</label>
-                  <div class="radio">
-                    <input type="radio" name="Quantity" formControlName="Quantity" value="annually">
-                    Annually
-                    <input type="radio" name="Quantity" formControlName="Quantity" value="others">
-                    Others
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <input type="submit" class="btn btn-success btn-send pt-2 btn-block " value="Submit" (click)="submit()">
-            </div>
-          </form>
+          </div>
         </div>
-      </div>    
-    </div>
+        <form [formGroup]="productDetailsForm">
+          <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="RFQ_ID">RFQ ID</label>
+                    <input  type="text" name="RFQ_ID" class="form-control"
+                        placeholder=""  formControlName="RFQ_id" [readonly]="true">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Customer ID</label>
+                    <input type="text" class="form-control" formControlName = "Customer_id" name = "Customer_id" 
+                    placeholder="" [readonly]="true">
+                </div>
+            </div>
+          </div> 
+          <button class="btn btn-primary" id ="verify" (click)="verfiy()" [disabled]='verify_status'>Verify</button>
+          <div formArrayName="product_detail"id = "product" hidden>
+            <div class="col-md-14" *ngFor="let group of productArray.controls; let i = index;"[formGroupName]="i"> 
+              <hr style="width: auto; height: 10px;" background-color="silver">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="product_id">Product ID</label>
+                    <input id="product_id" type="text" name="Product_id" class="form-control" placeholder=""
+                      formControlName="Product_id">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="product_name">Product Name</label>
+                    <input id="CIN" type="text" name="Part_name" class="form-control" placeholder=""
+                      formControlName="Part_name">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Part_code">Part Code</label>
+                    <input id="Part_code" type="text" class="form-control" placeholder="" formControlName="Part_code">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="vendor_name">Vendor Name</label>
+                    <input id="vendor_name" type="text" class="form-control" placeholder="" formControlName="Ventor_code">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Casting">Casting Type:</label>
+                    <div class="radio">
+                      <input type="radio" formControlName="Casting_type" value="rough" (change)='showCastingSelect(i)'>
+                      Rough
+                      <input type="radio" formControlName="Casting_type" value="Machinary" (change)='showCastingSelect(i)'>
+                      Machinary
+                      <select *ngIf='isSelect' formControlName="Machinary_type">
+                        <option value="" selected disabled >--Select--</option>
+                        <option>Pre</option>
+                        <option>Fully</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="pattern_Scope">Pattern Scope:</label>
+                    <div class="radio">
+                      <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="BFC">
+                      BFC
+                      <input type="radio" name="Pattern_scope" formControlName="Pattern_scope" value="Customer"> Customer
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="painting">Painting</label>
+                    <input id="painting" type="text" name="Painting_method" class="form-control" placeholder=""
+                      formControlName="Painting_method">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="packing">Packing</label>
+                    <input id="packing" type="text" name="Packing_type" class="form-control" placeholder=""
+                      formControlName="Packing_type">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Transport">Transport:</label>
+                    <div class="radio">
+                      <input type="radio" name="Transport" formControlName="Transport" value="BFC"> BFC
+                      <input type="radio" name="Transport" formControlName="Transport" value="Customer">
+                      Customer
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="payment">Payment Terms:</label>
+                    <div class="radio">
+                      <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="immediate"
+                        (change)='showPaymentTermsDays(i)'> Immediate
+                      <input type="radio" name="Payment_terms" formControlName="Payment_terms" value="days"
+                        (change)='showPaymentTermsDays(i)'> Days
+                      <input type="text" placeholder="Enter no. of days" *ngIf='isPaymentTermsDays'
+                        formControlName="Payments_terms_days">
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="export">Export Required:</label>
+                    <div class="radio">
+                      <input type="radio" name="Export_required" formControlName="Export_required" value="yes"> Yes
+                      <input type="radio" name="Export_required" formControlName="Export_required" value="no"> No
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="Quantity">Quantity:</label>
+                    <div class="radio">
+                      <input type="radio" name="Quantity" formControlName="Quantity" value="annually">
+                      Annually
+                      <input type="radio" name="Quantity" formControlName="Quantity" value="others">
+                      Others
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-14 control-buttons mb-4">
+                <img src="/assets/icons/add.svg" alt="+" (click)="addproduct()">
+                <img src="/assets/icons/remove.svg" alt="x" width="24" height="24"
+                    (click)="removeproduct(i)">
+              </div>
+
+            </div> 
+            <div class="btn btn-primary" (click)="submit()" >Submit</div> 
+          </div>
+        </form>
+      </div>
+    </div>  
   </div>
 </div>
 <script src="assets/vendors/js/vendor.bundle.base.js"></script>
