@@ -170,8 +170,7 @@
 
         <div class="main-panel ">
             <div class="container-fluid mt-5">
-                <form id="form-register" [formGroup]="orderDetailsForm">
-                    
+                <form id="form-register" [formGroup]="orderDetailsForm">               
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
@@ -238,14 +237,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input id="name" type="text" name="name" class="form-control" placeholder=""
+                                        <input  type="text" name="name" class="form-control" placeholder=""
                                             formControlName="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Designation">Designation</label>
-                                        <input id="Designation" type="text" name="Designation" class="form-control"
+                                        <input  type="text" name="Designation" class="form-control"
                                             placeholder="" formControlName="Designation">
                                     </div>
                                 </div>
@@ -261,12 +260,12 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="Contact">Contact</label>
-                                        <input id="contact" type="text" name="contact" class="form-control"
+                                        <input type="text" name="contact" class="form-control"
                                             placeholder="" formControlName="Contact">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <input id="name" type="text" name="name" class="form-control" placeholder=""
+                                    <input type="text" name="name" class="form-control" placeholder=""
                                         formControlName="Customer_id"[(ngModel)]="customer_id"  hidden>
                                 </div>
                             </div>

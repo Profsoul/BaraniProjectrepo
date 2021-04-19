@@ -12,7 +12,6 @@ import { OrderListComponent } from './marketing/order-list/order-list.component'
 import { EngineeringComponent } from './engineering/engineering.component';
 import { SupplierComponent } from './purchase/supplier/supplier.component';
 import { FeasibilityListComponent } from './engineering/feasibility-list/feasibility-list.component';
-import { HomeModuleComponent } from './dashboard/home-module/home-module.component';
 import { LoginComponent } from './login/login.component';
 import { SupplierHomeComponent } from './purchase/supplier-home/supplier-home.component';
 import { StockAddComponent } from './stock/stock-add/stock-add.component';
@@ -20,6 +19,8 @@ import { StockTakeComponent } from './stock/stock-take/stock-take.component';
 import { CustomerComponent } from './marketing/customer/customer.component';
 import { AddCustomerComponent } from './marketing/customer/add-customer/add-customer.component';
 import { ViewCustomerComponent } from './marketing/customer/view-customer/view-customer.component';
+import { HrComponent } from './hr/hr.component';
+
 
 const routes: Routes = [
   
@@ -82,6 +83,10 @@ const routes: Routes = [
     path:'supplier/add-supplier',
     component:SupplierComponent
 
+  },
+  {
+    path:'HR',
+    component:HrComponent
   },
   {
     path:'Stock',

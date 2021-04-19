@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
-import { customerDetails, orderDetails } from 'src/app/models/new-order-details';
+import { customerDetails } from 'src/app/models/new-order-details';
 import { OrderServiceService } from 'src/app/service/order-service.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
@@ -33,7 +33,7 @@ export class AddCustomerComponent implements OnInit {
       Customer_id: [],
       Email_id: [],
       Customer_name: [],
-      Nick_name: [],
+      Nick_name: [''],
       Address: [],
       GST_no: [],
       CIN_no: [],
@@ -82,6 +82,7 @@ export class AddCustomerComponent implements OnInit {
       GST_no        :  this.orderDetailsForm.value['GST_no'],
       CIN_no        :  this.orderDetailsForm.value['CIN_no'],
     }
+    
 
     this.SpinnerService.show();
     this.orderService.Post_Customer_Detail(customerDetails).subscribe(data =>{
@@ -98,18 +99,23 @@ export class AddCustomerComponent implements OnInit {
       })},
     error =>{
       this.SpinnerService.hide()
-      Swal.fire("Failed",error,'error')
+      Swal.fire("Failed","Unable to Upload dat please verfiy that Customer ID does not exist",'error')
     })
     
     }
 
   submit() {
-    console.log(this.addressArray.value,this.orderDetailsForm.get("Customer_id").value)
+    console.log(this.addressArray.value)
     this.orderService.Post_Individual_Detail(this.addressArray.value).subscribe(data =>{Swal.fire("Sucessfully Submit!!",data,"success")},
     error =>{Swal.fire("error!!!","Unable to Upload to Server","error")})
     
   }
   Generate(){
+  if (this.orderDetailsForm.get('Nick_name').value != '' ){  
   this.customer_id = ""
   this.customer_id= this.customer+this.orderDetailsForm.value['Nick_name'][0].toLocaleUpperCase()+this.orderDetailsForm.value['Nick_name'].slice(this.orderDetailsForm.value['Nick_name'].length-1).toLocaleUpperCase(); }
-}
+
+else {
+  this.customer_id = ""
+
+}}}

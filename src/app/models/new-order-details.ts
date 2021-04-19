@@ -35,8 +35,6 @@ export interface productDetails {
         Export_required: string;
         Payments_terms_days: string;
         Quantity: string;
-        Date: string;
-        Time: string;
         Is_feasiable: boolean;
         RFQ_detail: string;
 

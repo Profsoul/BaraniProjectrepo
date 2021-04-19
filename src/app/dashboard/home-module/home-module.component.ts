@@ -29,7 +29,8 @@ export class HomeModuleComponent implements OnInit {
     {'title':"Marketing" , "imgUrl":"marketing.jpg" },
     {'title':"Production" , "imgUrl":"production.jpg" },
     {'title':"Quality" , "imgUrl":"checking.jpg" },
-    {'title':"Engineering", "imgUrl":"engineering.jpg"} ]
+    {'title':"Engineering", "imgUrl":"engineering.jpg"},
+    {'title':'HR','imgUrl':'production.jpg'} ]
 
   
   
