@@ -33,6 +33,9 @@ import { CustomerComponent } from './marketing/customer/customer.component';
 import { AddCustomerComponent } from './marketing/customer/add-customer/add-customer.component';
 import { ViewCustomerComponent } from './marketing/customer/view-customer/view-customer.component';
 import { HrComponent } from './hr/hr.component';
+import { AttendanceComponent } from './hr/attendance/attendance.component';
+import { EmployeeComponent } from './hr/employee/employee.component';
+import { EmployeeDetailsComponent } from './hr/employee/employee-details/employee-details.component';
 
 
 
@@ -64,6 +67,9 @@ import { HrComponent } from './hr/hr.component';
     AddCustomerComponent,
     ViewCustomerComponent,
     HrComponent,
+    AttendanceComponent,
+    EmployeeComponent,
+    EmployeeDetailsComponent,
 
   ],
   imports: [
