@@ -20,6 +20,9 @@ import { CustomerComponent } from './marketing/customer/customer.component';
 import { AddCustomerComponent } from './marketing/customer/add-customer/add-customer.component';
 import { ViewCustomerComponent } from './marketing/customer/view-customer/view-customer.component';
 import { HrComponent } from './hr/hr.component';
+import { AttendanceComponent } from './hr/attendance/attendance.component';
+import { EmployeeComponent } from './hr/employee/employee.component';
+import { EmployeeDetailsComponent } from './hr/employee/employee-details/employee-details.component';
 
 
 const routes: Routes = [
@@ -87,6 +90,18 @@ const routes: Routes = [
   {
     path:'HR',
     component:HrComponent
+  },
+  {
+    path:'HR/attendance',
+    component:AttendanceComponent
+  },
+  {
+    path:'HR/employee',
+    component:EmployeeComponent
+  },
+  {
+    path: 'HR/employee/employee-details',
+    component:EmployeeDetailsComponent
   },
   {
     path:'Stock',
