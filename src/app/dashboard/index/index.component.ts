@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { stringify } from 'querystring';
+import * as $ from 'jquery';
 
 import { HomeControlService } from 'src/app/service/home-control.service';
 
@@ -15,7 +16,10 @@ export class IndexComponent implements OnInit {
   constructor( private homeControl:HomeControlService) {
     
   } 
-   
+   action(){
+     console.log("hello soul!!")
+     $('.sidebar-offcanvas').toggleClass("active");
+   }
   ngOnInit(): void {
     this.homeControl.data$.subscribe(res => this.data = res)
     console.log('hello' + this.data)
