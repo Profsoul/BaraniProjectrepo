@@ -11,6 +11,8 @@ import { OrderServiceService } from 'src/app/service/order-service.service';
   styleUrls: ['./supplier.component.css']
 })
 export class SupplierComponent implements OnInit {
+  classapplied = false
+
 
   /*Supplier = new Supplier()
   dataarray=[];*/
@@ -136,5 +138,8 @@ export class SupplierComponent implements OnInit {
     this.supplier_id = (date.getDate() + (date.getMonth() + 1).toString() + date.getHours() + date.getSeconds()).toString()
 
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators'
+
 
 @Component({
   selector: 'app-stock',
@@ -9,6 +8,7 @@ import { map } from 'rxjs/operators'
   styleUrls: ['./stock.component.css']
 })
 export class StockComponent implements OnInit {
+  classapplied = false
 
   value: string;  
  data :any
@@ -16,6 +16,9 @@ export class StockComponent implements OnInit {
   method(){
     this.router.navigateByUrl('Stock/inward')
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
   ngOnInit(): void {
     this.data = 
 

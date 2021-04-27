@@ -9,9 +9,14 @@ import { OrderServiceService } from '../service/order-service.service';
 })
 export class PurchaseComponent implements OnInit {
 
+  classapplied = false
+
   supplierDetails: supplierDetails[]
 
   constructor(private orderService: OrderServiceService) { }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
 
   ngOnInit(): void {

@@ -16,6 +16,7 @@ export class AddCustomerComponent implements OnInit {
   orderDetailsForm: FormGroup
   customer_id:string;
   customer:string;
+  classapplied = false
   click:boolean = false;
   
   
@@ -27,6 +28,10 @@ export class AddCustomerComponent implements OnInit {
       this.customer = 'BFPL-'+year+'-'+month+'-'
 
   }
+
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
   ngOnInit(): void {
     this.orderDetailsForm = this.formbuilder.group({

@@ -113,13 +113,16 @@
         </li>
 
       </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="action()" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
     </div>
   </nav>
 
 
 
   <div class="container-fluid page-body-wrapper">
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <nav class="sidebar sidebar-offcanvas" id="sidebar" [class.active] = "classapplied">
       <ul class="nav">
         <li class="nav-item nav-profile">
           <a href="#" class="nav-link">

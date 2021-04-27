@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery';
+
 
 @Component({
   selector: 'app-marketing',
@@ -8,11 +8,11 @@ import * as $ from 'jquery';
   styleUrls: ['./marketing.component.css']
 })
 export class MarketingComponent implements OnInit {
+  classapplied = false
 
   constructor(private router:Router) { }
   action(){
-    console.log("hello soul!!")
-    $('.sidebar-offcanvas').toggleClass("active");
+    this.classapplied = !this.classapplied
   }
   ngOnInit(): void {
   }

@@ -1,7 +1,7 @@
 <div class="container-scroller">
   <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-      <a class="navbar-brand brand-logo" href="index1.html">
+          <a class="navbar-brand brand-logo" href="index1.html">
         <img src="assets/images/logo.svg" alt="logo" /> </a>
 
       <a class="navbar-brand brand-logo-mini" href="index1.html">
@@ -54,7 +54,7 @@
           </div>
         </li>
 
-
+        
         <li class="nav-item dropdown">
           <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
             <i class="mdi mdi-email-outline"></i>
@@ -95,7 +95,7 @@
             </a>
           </div>
         </li>
-
+        
 
         <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
           <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
@@ -113,12 +113,15 @@
         </li>
 
       </ul>
+      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" (click)="action()" data-toggle="offcanvas">
+        <span class="mdi mdi-menu"></span>
+      </button>
     </div>
   </nav>
 
 
   <div class="container-fluid page-body-wrapper">
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar" [class.active] = "classapplied">
       <ul class="nav">
         <li class="nav-item nav-profile">
           <a href="#" class="nav-link">

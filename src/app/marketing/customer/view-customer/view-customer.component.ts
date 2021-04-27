@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ViewCustomerComponent implements OnInit {
   data :string;
   test=[]
+  classapplied = false
   time:any;
   date:any;
   val = true
@@ -64,6 +65,9 @@ export class ViewCustomerComponent implements OnInit {
     
 
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
   delete(){
     
     Swal.fire({
