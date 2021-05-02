@@ -124,7 +124,7 @@ const routes: Routes = [
     component: FeasibilityListComponent
   },
   {
-    path:'feasibility',
+    path:'feasibility/:id',
     component: FeasibilityListComponent
   }
 ];

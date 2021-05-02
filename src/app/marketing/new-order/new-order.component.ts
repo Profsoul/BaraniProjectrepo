@@ -36,7 +36,8 @@ export class NewOrderComponent implements OnInit {
       RFQ_id :this.productDetailsForm.get('RFQ_id').value,
       Customer_detail : this.productDetailsForm.get('Customer_id').value
     }
-    console.log(data)
+    console.log(this.value4)
+    
     this.verify_status = true
 
     this.orderService.Post_Order_Detail(data).subscribe(
@@ -99,7 +100,7 @@ export class NewOrderComponent implements OnInit {
   
   submit(){
     console.log(this.productDetailsForm.get('product_detail').value,this.value4)
-    this.orderService.Post_Order_Detail(this.productArray).subscribe(data =>{
+    this.orderService.Post_Product_Detail(this.productDetailsForm.get('product_detail').value).subscribe(data =>{
       Swal.fire("Successfully Added!!!","Data Added successfully to Server","success").then((result)=>{
         if (result.value){
           this.router.navigateByUrl("Marketing/Customer")

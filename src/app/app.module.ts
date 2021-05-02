@@ -36,6 +36,7 @@ import { HrComponent } from './hr/hr.component';
 import { AttendanceComponent } from './hr/attendance/attendance.component';
 import { EmployeeComponent } from './hr/employee/employee.component';
 import { EmployeeDetailsComponent } from './hr/employee/employee-details/employee-details.component';
+import { EngineeringServiceService } from './engineering/engineering-service.service';
 
 
 
@@ -84,7 +85,8 @@ import { EmployeeDetailsComponent } from './hr/employee/employee-details/employe
     
   ],
   providers: [ 
-    OrderServiceService
+    OrderServiceService,
+    EngineeringServiceService
   ],
   bootstrap: [AppComponent]
 })

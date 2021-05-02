@@ -1,8 +1,10 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Action } from 'rxjs/internal/scheduler/Action';
 import { feasibility } from 'src/app/models/new-order-details';
-import { OrderServiceService } from 'src/app/service/order-service.service';
+import { EngineeringServiceService } from '../engineering-service.service';
 
 @Component({
   selector: 'app-feasibility-list',
@@ -33,10 +35,37 @@ export class FeasibilityListComponent implements OnInit {
   isFilter_requirement: boolean = false
   isPattern_material: boolean = false
   isHeat_treatment_requirement: boolean = false
-
-  constructor(private formbuilder: FormBuilder, private orderService: OrderServiceService,
+data:string;
+view:boolean;
+list:any;
+  constructor(private formbuilder: FormBuilder, private service: EngineeringServiceService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+      this.data = this.route.snapshot.params.id 
+      if (this.data != "feasibility-form"){
+        console.log(this.data)
+      service.Filter_Product_Detail(this.data).subscribe(data=>{
+        this.list = data
+        console.log(this.data)
+      },
+      error =>{
+        console.log(error)
+      })
+      this.view = true;
+    }
+    else{
+      console.log(this.data)
+      this.view = false
+    }
+      
+
+
+    }
+
+
+    action(){
+     this.view = !this.view
+    }
 
   ngOnInit(): void {
     this.details = {
@@ -96,11 +125,6 @@ export class FeasibilityListComponent implements OnInit {
       Comments: [],
       Product_detail: ['asd',],
     })
-    debugger
-    this.orderService.Get_Feasibility_Details()
-      .subscribe(data => {
-        this.feasibility = data
-      })
 
       
   }
@@ -190,16 +214,6 @@ export class FeasibilityListComponent implements OnInit {
     }
   }
 
-  submit(){
-    debugger
-    this.orderService.Post_Product_Detail(this.feasibilityForm.value)
-        .subscribe(data => {
-          console.log(data)
-        }, 
-          error => {
-            console.log(error)
-          })
-          console.log(this.feasibilityForm.value)
-  }
+  submit(){}
 
 }

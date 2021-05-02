@@ -13,7 +13,7 @@
   
             <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown"
               aria-expanded="false">
-              <i class="mdi mdi-bell-outline"></i>
+               <i class="fa fa-bell-o" aria-hidden="true"></i>
               <span class="count">7</span>
             </a>
   
@@ -57,7 +57,7 @@
           
           <li class="nav-item dropdown">
             <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="mdi mdi-email-outline"></i>
+              <i class="fa fa-envelope-o" aria-hidden="true"></i>
               <span class="count bg-success">3</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
@@ -181,24 +181,31 @@
         </ul>
       </nav>
       <div class="main-panel">
-        <div>
-          <table class="table table-sm table-hover">
-            <tr *ngFor="let NewOrderData of newOrderData">
-              <td>
-                <a [routerLink]="['/Engineering', NewOrderData.Customer_name,NewOrderData.Part_name]">
-                  <td>Customer_name : {{NewOrderData.Customer_name }}</td>
-                  <td>Nick_name: {{NewOrderData.Nick_name}}</td>
-                </a>
-              <td>
-              
-            </tr>
+        <div class="container mt-3">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class="mb-3">
+              <tr class="table-dark mb-3">
+                <th scope="col">Rfq-Id</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody >
+              <tr class="table mb-3" style="outline: none;"  *ngFor = "let item of list" routerLink = "/feasibility/{{item.RFQ_id}}">
+                <td>{{item.RFQ_id}}</td>
+                <td>{{item.Customer_detail}}</td>
+                <td>In Progress</td>
+              </tr>
+            </tbody>            
           </table>
         </div>
+      </div>  
       </div>
   
   
     </div>
-  </div>
+</div>
   <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="assets/js/shared/off-canvas.js"></script>
+  
   
