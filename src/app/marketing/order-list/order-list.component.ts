@@ -10,9 +10,13 @@ import { OrderServiceService } from 'src/app/service/order-service.service';
 })
 export class OrderListComponent implements OnInit {
   
+  classapplied = false
   NewOrderDetails : NewOrderDetails[]
   listFilter: string;
   constructor( private orderService:OrderServiceService) { }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
   ngOnInit(): void {
     this.orderService.Get_Customer_Detail()

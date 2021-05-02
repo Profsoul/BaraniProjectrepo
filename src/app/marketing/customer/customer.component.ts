@@ -11,6 +11,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class CustomerComponent implements OnInit {
   customer_list =[]
   search_input :string;
+  classapplied = false
   constructor(private router:Router,public ApiService:OrderServiceService,private SpinnerService: NgxSpinnerService) 
   {}
    ngOnInit(): void
@@ -46,6 +47,9 @@ export class CustomerComponent implements OnInit {
     else if (this.search_input == ''){
       this.ngOnInit();}
     }
+    action(){
+      this.classapplied = !this.classapplied
+     }
   
 
   addCustomer()

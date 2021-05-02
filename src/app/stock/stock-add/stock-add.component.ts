@@ -7,7 +7,9 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./stock-add.component.css']
 })
 export class StockAddComponent implements OnInit {
+  classapplied = false
   orderDetailsForm: FormGroup;
+  
   constructor(private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -17,6 +19,9 @@ export class StockAddComponent implements OnInit {
   
       })
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
   addIndividualDetailsGroup() {
     return this.formbuilder.group({
       Item:[''],

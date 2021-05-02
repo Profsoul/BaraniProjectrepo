@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 export class ViewCustomerComponent implements OnInit {
   data :string;
   test=[]
+  classapplied = false
   time:any;
   date:any;
   val = true
@@ -35,6 +36,7 @@ export class ViewCustomerComponent implements OnInit {
           CIN_no        : data['CIN_no']
     
         })
+        this.date = data['Datime']
         this.SpinnerService.hide();
       },
       error =>{
@@ -42,6 +44,8 @@ export class ViewCustomerComponent implements OnInit {
       }
    
     )
+
+    
   
     
     this.orderDetailsForm = this.formbuilder.group({
@@ -56,7 +60,9 @@ export class ViewCustomerComponent implements OnInit {
   }
 
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.orderDetailsForm.disable()
+   }
   result(){
     this.orderDetailsForm.enable();
     document.getElementById("update").hidden = false
@@ -64,6 +70,9 @@ export class ViewCustomerComponent implements OnInit {
     
 
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
   delete(){
     
     Swal.fire({
@@ -111,6 +120,7 @@ export class ViewCustomerComponent implements OnInit {
     Address       :  this.orderDetailsForm.value['Address'],
     GST_no        :  this.orderDetailsForm.value['GST_no'],
     CIN_no        :  this.orderDetailsForm.value['CIN_no'],
+    Datime        :  this.date
    }
    console.log(updated_customerDetails)
 this.SpinnerService.show()   
@@ -122,7 +132,9 @@ this.service.Upt_Customer_Detail(this.orderDetailsForm.value['Customer_id'],upda
     this.router.navigateByUrl("Marketing/Customer")
   }
 })},
-error=>{Swal.fire("Failed to update","Failed to update information","error").then((result)=>{
+error=>{
+  this.SpinnerService.hide();
+  Swal.fire("Failed to update","Failed to update information","error").then((result)=>{
   if (result.value){
 
     this.router.navigateByUrl("Marketing/Customer")

@@ -10,10 +10,11 @@ import { Observable } from 'rxjs';
 export class OrderServiceService {
   supplier :any;
 
-  base_url = "http://127.0.0.1:8000/marketing/"
+  base_url = "http://127.0.0.1:8000/marketing/" 
+  
   httpHeaders = new HttpHeaders({'Content-type':'application/json'})
 
-  supplier_url = "https://baranibackend.pythonanywhere.com/purchase/"
+  supplier_url = "http://127.0.0.1:8000/purchase/"
 
   constructor(private http:HttpClient) { }
 

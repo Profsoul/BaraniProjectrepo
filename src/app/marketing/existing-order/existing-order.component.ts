@@ -6,8 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./existing-order.component.css']
 })
 export class ExistingOrderComponent implements OnInit {
+  classapplied = false
 
   constructor() { }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
   ngOnInit(): void {
   }

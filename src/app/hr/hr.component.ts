@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./hr.component.css']
 })
 export class HrComponent implements OnInit {
+  classapplied = false 
+   action(){
+    this.classapplied = !this.classapplied
+   }
 
   constructor() { }
 

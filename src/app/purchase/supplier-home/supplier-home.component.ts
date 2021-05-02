@@ -9,6 +9,8 @@ import { OrderServiceService } from 'src/app/service/order-service.service';
   styleUrls: ['./supplier-home.component.css']
 })
 export class SupplierHomeComponent implements OnInit {
+  classapplied = false
+
   supplierDetails: supplierDetails[]
 
   constructor(private router:Router, private orderService: OrderServiceService) { }
@@ -32,5 +34,9 @@ export class SupplierHomeComponent implements OnInit {
   addSupplier(){
     this.router.navigateByUrl('supplier/add-supplier')
   }
+
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
 }

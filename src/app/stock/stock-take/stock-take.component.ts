@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./stock-take.component.css']
 })
 export class StockTakeComponent implements OnInit {
+  classapplied = false
 
   constructor() { }
 
   ngOnInit(): void {
   }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
 }

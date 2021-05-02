@@ -11,9 +11,13 @@ import  Swal from 'sweetalert2';
 })
 export class EmployeeComponent implements OnInit {
   search_input :string;
+  classapplied= false
 
 
   constructor(private router:Router,private SpinnerService: NgxSpinnerService) { }
+  action(){
+    this.classapplied = !this.classapplied
+   }
 
   ngOnInit(): void {
   }

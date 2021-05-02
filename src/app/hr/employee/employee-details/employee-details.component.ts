@@ -7,6 +7,10 @@ import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
   styleUrls: ['./employee-details.component.css']
 })
 export class EmployeeDetailsComponent implements OnInit {
+  classapplied = false 
+   action(){
+    this.classapplied = !this.classapplied
+   }
 
   constructor() { }
 

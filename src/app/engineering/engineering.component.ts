@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EngineeringServiceService } from './engineering-service.service';
 
 @Component({
   selector: 'app-engineering',
@@ -10,10 +11,20 @@ import { Router } from '@angular/router';
 export class EngineeringComponent implements OnInit {
 
   feasibilityForm : FormGroup;
+  list :any;
   isDrawing_Readability: boolean;
   newOrderData: any =[];
   
-  constructor(private formBuilder: FormBuilder, private router: Router) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private service: EngineeringServiceService) { 
+    service.Get_Order_Detail().subscribe(data =>{
+
+      this.list = data
+    },
+    error =>{
+      console.log(error)
+    })
+
+  }
 
   ngOnInit(): void {
     this.feasibilityForm = this.formBuilder.group({

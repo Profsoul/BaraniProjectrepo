@@ -10,7 +10,11 @@ import { OrderServiceService } from 'src/app/service/order-service.service';
 })
 export class PurchaseListComponent implements OnInit {
 
+  classapplied = false
  
+  action(){
+    this.classapplied = !this.classapplied
+   }
   
   constructor(private router:Router, private orderService: OrderServiceService) { }
 

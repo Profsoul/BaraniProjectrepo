@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { stringify } from 'querystring';
-import * as $ from 'jquery';
-
 import { HomeControlService } from 'src/app/service/home-control.service';
 
 @Component({
@@ -12,13 +9,13 @@ import { HomeControlService } from 'src/app/service/home-control.service';
 export class IndexComponent implements OnInit {
   title:string;
   isShowRouterLink:boolean = false
+  classapplied = false
   data: string;
   constructor( private homeControl:HomeControlService) {
     
-  } 
+  }
    action(){
-     console.log("hello soul!!")
-     $('.sidebar-offcanvas').toggleClass("active");
+    this.classapplied = !this.classapplied
    }
   ngOnInit(): void {
     this.homeControl.data$.subscribe(res => this.data = res)
